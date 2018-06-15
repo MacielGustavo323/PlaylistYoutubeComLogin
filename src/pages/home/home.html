@@ -1,0 +1,29 @@
+<ion-header>
+  <ion-navbar color="danger">
+    <ion-title>
+      Busca De Playlists
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content>
+  <ion-item>
+    <ion-label stacked>Clique no botão para exibir as playlists</ion-label>
+    
+  </ion-item>
+  <button full ion-button (click)="searchPlaylists()" [disabled]="channelId === ''" color="danger">Playlists</button>
+
+  <ion-list no-padding>
+    <button ion-item *ngFor="let list of playlists | async" (click)="openPlaylist(list.id)">
+      <ion-thumbnail item-start>
+        <img [src]="list.snippet.thumbnails.standard.url">
+      </ion-thumbnail>
+
+      <h2>{{ list.snippet.title }}</h2>
+      <p>{{ list.snippet.publishedAt | date:'short' }}</p>
+    </button>
+  </ion-list>
+  <ion-item>
+    <button ion-button block clear  (click)="signOut()">Sair</button>
+  </ion-item>
+</ion-content>

@@ -1,0 +1,30 @@
+
+<ion-header>
+
+  <ion-navbar color="danger"> 
+    <ion-title>Register</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+<form #form="ngForm" novalidated>
+  <ion-list>
+
+    <ion-item>
+      <ion-label floating>Email</ion-label>
+      <ion-input name="email" [(ngModel)]="user.email" #email="ngModel" type="text"></ion-input>
+    </ion-item>
+  
+    <ion-item>
+      <ion-label floating>Senha</ion-label>
+      <ion-input name="password" [(ngModel)]="user.password" #password="ngModel" type="password"></ion-input>
+    </ion-item>
+  
+  </ion-list>
+  <div padding>
+    <button ion-button (click)="createAccount()" color="danger">Cadastrar</button>  
+  </div>
+</form>
+</ion-content>
